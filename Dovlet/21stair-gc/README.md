@@ -28,4 +28,6 @@ n 이 입력으로 주어진다. n 의 범위는 1 부터 19 사이의 정수이
 
 5
 ```
-출처:Shanghai 2004 Preliminary
+출처 : Shanghai 2004 Preliminary
+
+사이트 : http://59.23.150.58/30stair/gc/gc.php?pname=gc
