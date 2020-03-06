@@ -17,11 +17,9 @@
 function solution(n) {
   if (n === 1 || n === 2) return n;
 
-  let i = 0;
-  const jumpCase = [1, 2];
-  while (i < n) {
+  const jumpCases = [1, 2];
+  for (let i = 0; i < n; i++) {
     jumpCase[i + 2] = (jumpCase[i] + jumpCase[i + 1]) % 1234567;
-    i++;
   }
 
   return jumpCase[n - 1];
