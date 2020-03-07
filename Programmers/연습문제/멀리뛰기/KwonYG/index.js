@@ -15,12 +15,16 @@
  */
 
 function solution(n) {
-  if (n === 1 || n === 2) return n;
+  if (n === 1 || n === 2 || n === 3) return n;
 
-  const jumpCases = [1, 2];
-  for (let i = 0; i < n; i++) {
-    jumpCase[i + 2] = (jumpCase[i] + jumpCase[i + 1]) % 1234567;
+  let jumpCaseA = 2;
+  let jumpCaseB = 3;
+  for (let i = 3; i < n; i++) {
+    const nextCase = (jumpCaseA + jumpCaseB) % 1234567;
+    jumpCaseA = jumpCaseB;
+    jumpCaseB = nextCase;
   }
 
-  return jumpCase[n - 1];
+  return jumpCaseB;
 }
+solution(5);
