@@ -1,3 +1,5 @@
+import time
+
 def solution2(n):
 	if (n == 1 or n == 2 or n == 3):
 		return n
@@ -25,3 +27,18 @@ def solution(n):
 		res = v
 		
 	return res
+
+
+# 함수별 시간 측정
+n = 10000000
+
+start = time.time()
+res = solution(n)
+print('res of [n = ' + str(n) + '] -> ', res)
+print('time :', time.time() - start)
+
+start = time.time()
+res2 = solution2(n)
+
+print('res2 of [n = ' + str(n) + '] -> ', res2)
+print('time :', time.time() - start)
