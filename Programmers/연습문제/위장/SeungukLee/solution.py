@@ -8,7 +8,7 @@ def solution(clothes):
 
 
 def get_clothes_counter(clothes):
-    return Counter([kind for name, kind in clothes])
+    return Counter([kind for _, kind in clothes])
 
 
 def get_cnt_combined_clothes(clothes):
