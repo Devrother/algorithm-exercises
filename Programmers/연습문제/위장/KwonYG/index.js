@@ -1,24 +1,26 @@
 const TYPE = 1;
 
-const pickCloth = (targetCloth, pickedClothes) => {
-  pickedClothes.has(targetCloth)
-    ? pickedClothes.set(targetCloth, pickedClothes.get(targetCloth) + 1)
-    : pickedClothes.set(targetCloth, 2);
-};
+const getSum = pickedClothes =>
+  Object.keys(pickedClothes).reduce((sum, key) => sum * pickedClothes[key], 1);
 
-const getCombinedCount = pickedClothes => {
-  let result = 1;
-  for (const count of pickedClothes.values()) {
-    result *= count;
-  }
-  return result - 1;
-};
+const pickCloth = clothes =>
+  clothes.reduce((pickedClothes, cloth) => {
+    pickedClothes[cloth[TYPE]] = pickedClothes[cloth[TYPE]]
+      ? pickedClothes[cloth[TYPE]] + 1
+      : 2;
+    return pickedClothes;
+  }, {});
 
 const solution = clothes => {
-  const pickedClothes = new Map();
-
-  clothes.forEach(cloth => pickCloth(cloth[TYPE], pickedClothes));
-
-  const answer = getCombinedCount(pickedClothes);
+  const pickedClothes = pickCloth(clothes);
+  const answer = getSum(pickedClothes) - 1;
   return answer;
 };
+
+console.log(
+  solution([
+    ["yellow_hat", "headgear"],
+    ["blue_sunglasses", "eyewear"],
+    ["green_turban", "headgear"]
+  ])
+);
