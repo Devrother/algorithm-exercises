@@ -1,7 +1,10 @@
 const TYPE = 1;
 
-const getSum = pickedClothes =>
-  Object.keys(pickedClothes).reduce((sum, key) => sum * pickedClothes[key], 1);
+const solution = clothes => {
+  const pickedClothes = pickCloth(clothes);
+  const answer = getMul(pickedClothes) - 1;
+  return answer;
+};
 
 const pickCloth = clothes =>
   clothes.reduce((pickedClothes, cloth) => {
@@ -11,16 +14,5 @@ const pickCloth = clothes =>
     return pickedClothes;
   }, {});
 
-const solution = clothes => {
-  const pickedClothes = pickCloth(clothes);
-  const answer = getSum(pickedClothes) - 1;
-  return answer;
-};
-
-console.log(
-  solution([
-    ["yellow_hat", "headgear"],
-    ["blue_sunglasses", "eyewear"],
-    ["green_turban", "headgear"]
-  ])
-);
+const getMul = pickedClothes =>
+  Object.keys(pickedClothes).reduce((mul, key) => mul * pickedClothes[key], 1);
