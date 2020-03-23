@@ -21,7 +21,7 @@ function solution(board) {
 }
 
 const isAllZeroBoard = board => {
-  return board.every(row => row.includes(1) === false);
+  return board.every(row => !row.includes(1));
 };
 
 const getLeastSide = (board, row, col) => {
@@ -31,22 +31,3 @@ const getLeastSide = (board, row, col) => {
     board[row - 1][col]
   );
 };
-
-// solution([
-//   [1, 1],
-//   [1, 0]
-// ]);
-
-// solution([
-//   [0, 1, 1, 1],
-//   [1, 1, 1, 1],
-//   [1, 1, 1, 1],
-//   [0, 0, 1, 0]
-// ]);
-
-solution([
-  [0, 0, 0, 1],
-  [0, 0, 0, 0],
-  [0, 0, 0, 0],
-  [0, 0, 0, 0]
-]);
