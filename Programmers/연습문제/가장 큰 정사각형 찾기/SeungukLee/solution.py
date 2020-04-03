@@ -16,11 +16,7 @@ def solution(board):
 
 
 def is_all_zero_in_board(board):
-    for row in board:
-        for col in row:
-            if col == 1:
-                return False
-    return True
+    return not any(1 in row for row in board);
 
 
 def get_around_min(board, location):
