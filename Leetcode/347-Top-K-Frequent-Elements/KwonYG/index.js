@@ -1,12 +1,10 @@
 const topKFrequent = (nums, k) => {
   const count = {};
 
-  nums.forEach((num) => {
-    count[num] ? (count[num].count += 1) : (count[num] = { num, count: 1 });
-  });
+  nums.forEach((num) => (count[num] ? (count[num] += 1) : (count[num] = 1)));
 
   const result = Object.keys(count)
-    .sort((a, b) => count[b].count - count[a].count)
+    .sort((a, b) => count[b] - count[a])
     .slice(0, k);
 
   return result;
